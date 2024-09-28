@@ -30,7 +30,7 @@ var chatClient = openAiClient.GetChatClient("gpt-4o");
 var result = await chatClient.CompleteChatAsync(
     [
         new SystemChatMessage(
-            "ユーザーの発言内容から名前と年齢を抽出して JSON で形式に整形してください。"),
+            "ユーザーの発言内容から名前と年齢を抽出して JSON 形式に整形してください。"),
         new UserChatMessage("""
             私の名前は太郎です。17歳です！
             日本の東京都と大阪府の2拠点生活をしています！
