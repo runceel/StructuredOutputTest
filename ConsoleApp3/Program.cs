@@ -1,7 +1,6 @@
 ﻿using Azure.AI.OpenAI;
 using Azure.Identity;
 using OpenAI.Chat;
-using System.Text.Json;
 using System.Text.Json.Schema;
 using System.Text.Json.Serialization;
 
@@ -17,7 +16,7 @@ var personJsonSchema = JsonSchemaExporter.GetJsonSchemaAsNode(
 var openAiClient = new AzureOpenAIClient(
     // モデルのバージョンが 2024-08-06 以上の gpt-4o をデプロイしている
     // Azure OpenAI Service のエンドポイントを指定する
-    new("https://<<AOAIのリソース名>>.openai.azure.com/"),
+    new("https://<<AOAI のリソース名>>.openai.azure.com/"),
     // Managed ID で認証する
     new DefaultAzureCredential(options: new()
     {
@@ -48,6 +47,7 @@ var result = await chatClient.CompleteChatAsync(
 Console.WriteLine(result.Value.Content.First().Text);
 
 
+[JsonSourceGenerationOptions(PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase)]
 [JsonSerializable(typeof(Person))]
 partial class SourceGenerationContext : JsonSerializerContext;
 
