@@ -1,8 +1,4 @@
-﻿//モデル：gpt-4o
-//モデルのバージョン：2024-08-06 以上
-//APIのバージョン：2024-08-01-preview 以上
-
-using Azure.AI.OpenAI;
+﻿using Azure.AI.OpenAI;
 using Azure.Identity;
 using OpenAI.Chat;
 using System.Text.Json;
